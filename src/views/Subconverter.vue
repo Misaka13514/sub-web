@@ -225,7 +225,7 @@ const project = process.env.VUE_APP_PROJECT
 const remoteConfigSample = process.env.VUE_APP_SUBCONVERTER_REMOTE_CONFIG
 const gayhubRelease = process.env.VUE_APP_BACKEND_RELEASE
 const defaultBackend = process.env.VUE_APP_SUBCONVERTER_DEFAULT_BACKEND + '/sub?'
-const shortUrlBackend = process.env.VUE_APP_MYURLS_DEFAULT_BACKEND + '/short'
+const shortUrlBackend = process.env.VUE_APP_MYURLS_DEFAULT_BACKEND
 const configUploadBackend = process.env.VUE_APP_CONFIG_UPLOAD_BACKEND + '/config/upload'
 const tgBotLink = process.env.VUE_APP_BOT_LINK
 
@@ -255,8 +255,141 @@ export default {
           ClashR: "clashr",
           Surge2: "surge&ver=2",
         },
-        backendOptions: [{ value: "http://127.0.0.1:25500/sub?" }],
+        backendOptions: [
+          { value: "http://127.0.0.1:25500/sub?" },
+          { value: "https://misakasub.herokuapp.com/sub?" },
+          { value: "https://subcon.py6.pw/sub?" },
+          { value: "https://subconverter-web.now.sh/sub?" },
+          { value: "https://subconverter.herokuapp.com/sub?" },
+          { value: "https://api.dler.io/sub?" },
+          { value: "https://api.wcc.best/sub?" },
+          { value: "https://subcon.dlj.tf/sub?" },
+          { value: "https://sub.id9.cc/sub?" },
+        ],
         remoteConfig: [
+          {
+            label: "默认",
+            options: [
+              {
+                label: "不选，由接口提供方提供",
+                value: "",
+              },
+            ],
+          },
+          {
+            label: "ACL4SSR",
+            options: [
+              {
+                label: "ACL4SSR_Online 默认版 分组比较全",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini",
+              },
+              {
+                label: "ACL4SSR_Online_AdblockPlus 更多去广告",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_AdblockPlus.ini",
+              },
+              {
+                label: "ACL4SSR_Online_NoAuto 无自动测速",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_NoAuto.ini",
+              },
+              {
+                label: "ACL4SSR_Online_NoReject 无广告拦截规则",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_NoReject.ini",
+              },
+              {
+                label: "ACL4SSR_Online_Mini 精简版",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini.ini",
+              },
+              {
+                label: "ACL4SSR_Online_Mini_AdblockPlus.ini 精简版 更多去广告",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_AdblockPlus.ini",
+              },
+              {
+                label: "ACL4SSR_Online_Mini_NoAuto.ini 精简版 不带自动测速",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_NoAuto.ini",
+              },
+              {
+                label: "ACL4SSR_Online_Mini_Fallback.ini 精简版 带故障转移",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_Fallback.ini",
+              },
+              {
+                label:
+                  "ACL4SSR_Online_Mini_MultiMode.ini 精简版 自动测速、故障转移、负载均衡",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini",
+              },
+              {
+                label: "ACL4SSR_Online_Full 全分组 重度用户使用",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini",
+              },
+              {
+                label:
+                  "ACL4SSR_Online_Full_NoAuto.ini 全分组 无自动测速 重度用户使用",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
+              },
+              {
+                label:
+                  "ACL4SSR_Online_Full_AdblockPlus 全分组 重度用户使用 更多去广告",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini",
+              },
+              {
+                label:
+                  "ACL4SSR_Online_Full_Netflix 全分组 重度用户使用 奈飞全量",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_Netflix.ini",
+              },
+              {
+                label: "ACL4SSR 本地 默认版 分组比较全",
+                value: "config/ACL4SSR.ini",
+              },
+              {
+                label: "ACL4SSR_Mini 本地 精简版",
+                value: "config/ACL4SSR_Mini.ini",
+              },
+              {
+                label: "ACL4SSR_Mini_NoAuto.ini 本地 精简版+无自动测速",
+                value: "config/ACL4SSR_Mini_NoAuto.ini",
+              },
+              {
+                label: "ACL4SSR_Mini_Fallback.ini 本地 精简版+fallback",
+                value: "config/ACL4SSR_Mini_Fallback.ini",
+              },
+              {
+                label: "ACL4SSR_BackCN 本地 回国",
+                value: "config/ACL4SSR_BackCN.ini",
+              },
+              {
+                label: "ACL4SSR_NoApple 本地 无苹果分流",
+                value: "config/ACL4SSR_NoApple.ini",
+              },
+              {
+                label: "ACL4SSR_NoAuto 本地 无自动测速 ",
+                value: "config/ACL4SSR_NoAuto.ini",
+              },
+              {
+                label: "ACL4SSR_NoAuto_NoApple 本地 无自动测速&无苹果分流",
+                value: "config/ACL4SSR_NoAuto_NoApple.ini",
+              },
+              {
+                label: "ACL4SSR_NoMicrosoft 本地 无微软分流",
+                value: "config/ACL4SSR_NoMicrosoft.ini",
+              },
+              {
+                label: "ACL4SSR_WithGFW 本地 GFW列表",
+                value: "config/ACL4SSR_WithGFW.ini",
+              },
+            ],
+          },
           {
             label: "universal",
             options: [
@@ -517,8 +650,7 @@ export default {
 
       this.loading = true;
 
-      let data = new FormData();
-      data.append("longUrl", btoa(this.customSubUrl));
+      let data = { url: this.customSubUrl };
 
       this.$axios
         .post(shortUrlBackend, data, {
@@ -527,12 +659,13 @@ export default {
           }
         })
         .then(res => {
-          if (res.data.Code === 1 && res.data.ShortUrl !== "") {
-            this.curtomShortSubUrl = res.data.ShortUrl;
-            this.$copyText(res.data.ShortUrl);
+          if (res.data.status === 200 && res.data.key !== "") {
+            let ShortUrl = shortUrlBackend + res.data.key;
+            this.curtomShortSubUrl = ShortUrl;
+            this.$copyText(ShortUrl);
             this.$message.success("短链接已复制到剪贴板");
           } else {
-            this.$message.error("短链接获取失败：" + res.data.Message);
+            this.$message.error("短链接获取失败：" + res.data.key);
           }
         })
         .catch(() => {
